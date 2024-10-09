@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corazones Flotantes</title>
+  <style>
+    body {
+      background-color: #000000;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      background-image: url(imagen/heart.png); /* Reemplaza con la ruta correcta de tu imagen */
+      background-size: cover;
+      animation: float 10s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(200vh) scale(0.5); /* Empieza desde abajo */
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-50vh) scale(1); /* Se mueve hacia arriba y crece un poco */
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(0.5); /* Termina en la parte superior */
+        opacity: 0;
+      }
+    }
+    .text-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 2em;
+      font-family: 'Times New Roman', sans-serif;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+    <div class="text-center">
+        Siempre que estoy contigo <br> mi mundo se siente asi, key
+  <script>
+    for (let i = 0; i < 250; i++) {  // Aumenté la cantidad de corazones
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+
+      // Asignar posiciones y tamaños aleatorios
+      heart.style.left = Math.random() * (window.innerWidth - 50) + 'px';
+      const size = Math.random() * 60 + 25; // Corazones pequeños para más cantidad
+      heart.style.width = size + 'px';
+      heart.style.height = size + 'px';
+
+      // Aplicar transformaciones y estilos aleatorios
+      heart.style.transform = `scale(${Math.random() * 0.5 + 0.9})`; // Tamaños más cercanos
+      heart.style.opacity = Math.random() * 0.3 + 0.7;
+
+      // Aplicar tonos de rosado pastel con hue-rotate
+      heart.style.filter = `hue-rotate(${Math.random() * 50 + 300}deg)`; // Variaciones suaves de rosado pastel
+
+      // Variación en la duración de la animación para más dinamismo
+      heart.style.animationDuration = Math.random() * 8 + 3 + 's'; // Tiempos más largos para un movimiento suave
+
+
+      document.body.appendChild(heart);
+    }
+   
+
+    createHeartsGradually();
+  </script>
+</body>
+</html>
